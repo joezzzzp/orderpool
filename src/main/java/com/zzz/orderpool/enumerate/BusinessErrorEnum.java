@@ -10,7 +10,10 @@ public enum BusinessErrorEnum {
     NONE(-1, "未知异常"),
     //超时异常
     TIME_OUT(-2, "连接超时"),
-    NO_ORDER(-3, "订单池中没有订单");
+    //订单池无订单
+    NO_ORDER(-3, "订单池中没有订单"),
+    //订单池已满
+    FULL_ORDER_POOL(-4, "订单池已满");
 
     private int errorCode;
 
