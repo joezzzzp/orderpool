@@ -14,12 +14,25 @@ public class Order {
      */
     private String orderNo;
 
+    /**
+     * 订单内容
+     */
+    private String content;
+
     public String getOrderNo() {
         return orderNo;
     }
 
     public void setOrderNo(String orderNo) {
         this.orderNo = orderNo;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     @Override

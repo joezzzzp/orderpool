@@ -1,9 +1,12 @@
 package com.zzz.orderpool.params;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 /**
  * @author zzz
  * @date 2019/8/6 15:43
  **/
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Response<T> {
 
     private static final int SUCCESS_CODE = 200;
@@ -47,6 +50,10 @@ public class Response<T> {
 
     public void setData(T data) {
         this.data = data;
+    }
+
+    public static <T> Response<T> success() {
+        return build(SUCCESS_CODE, SUCCESS_MESSAGE, null);
     }
 
     public static <T> Response<T> success(T data) {

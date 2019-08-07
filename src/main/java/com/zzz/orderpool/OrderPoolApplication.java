@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class OrderpoolApplication {
+public class OrderPoolApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(OrderpoolApplication.class, args);
+        SpringApplication.run(OrderPoolApplication.class, args);
     }
 
 }

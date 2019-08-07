@@ -29,14 +29,20 @@ public class OrderController {
     }
 
     @PostMapping("/add")
-    public Response<Order> addOrder() {
-        Order newOrder = orderService.add();
-        return Response.success(newOrder);
+    public Response<Order> addOrder(@RequestBody Order newOrder) {
+        Order generatedOrder = orderService.add(newOrder);
+        if (generatedOrder != null) {
+            return Response.success(generatedOrder);
+        }
+        throw BusinessException.build(BusinessErrorEnum.FULL_ORDER_POOL);
     }
 
     @DeleteMapping("/remove/{orderNo}")
     public Response<Boolean> removeOrder(@PathVariable String orderNo) {
-        return Response.success(orderService.remove(orderNo));
+        if (orderService.remove(orderNo)) {
+            return Response.success();
+        }
+        throw BusinessException.build(BusinessErrorEnum.NO_SUCH_ORDER);
     }
 
     @GetMapping("/takeOne")

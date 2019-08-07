@@ -7,15 +7,15 @@ import org.springframework.stereotype.Service;
  * @author zzz
  * @date 2019/8/6 15:38
  **/
-
 @Service
 public interface OrderService {
 
     /**
      * 新增订单
+     * @param newOrder 新订单实体
      * @return 新增的订单实体
      */
-    Order add();
+    Order add(Order newOrder);
 
     /**
      * 移除订单

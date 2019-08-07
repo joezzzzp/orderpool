@@ -1,11 +1,13 @@
 package com.zzz.orderpool.service.impl;
 
-import com.zzz.orderpool.component.OrderGenerator;
+import com.zzz.orderpool.component.OrderNoGenerator;
 import com.zzz.orderpool.params.Order;
 import com.zzz.orderpool.service.OrderService;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.ArrayBlockingQueue;
@@ -16,8 +18,6 @@ import java.util.concurrent.TimeUnit;
  * @author zzz
  * @date 2019/8/6 16:09
  **/
-
-@Service
 public class SimpleOrderService implements OrderService, InitializingBean {
 
     private BlockingQueue<Order> orderPool;
@@ -28,21 +28,23 @@ public class SimpleOrderService implements OrderService, InitializingBean {
     @Value("${timeOut:5000}")
     private long timeOutMilliSecond;
 
-    private OrderGenerator orderGenerator;
+    private OrderNoGenerator orderNoGenerator;
 
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         orderPool = new ArrayBlockingQueue<>(poolSize);
     }
 
     @Autowired
-    public void setOrderGenerator(OrderGenerator orderGenerator) {
-        this.orderGenerator = orderGenerator;
+    @Qualifier(value = "simpleOrderNoGenerator")
+    public void setOrderNoGenerator(OrderNoGenerator orderNoGenerator) {
+        this.orderNoGenerator = orderNoGenerator;
     }
 
     @Override
-    public Order add() {
-        Order newOrder = orderGenerator.newOrder();
+    public Order add(Order newOrder) {
+        String newOrderOr = orderNoGenerator.nextOrderNo();
+        newOrder.setOrderNo(newOrderOr);
         if (orderPool.add(newOrder)) {
             return newOrder;
         }
