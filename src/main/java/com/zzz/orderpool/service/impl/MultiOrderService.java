@@ -36,7 +36,7 @@ public class MultiOrderService implements OrderService {
 
     private ObjectMapper objectMapper;
 
-    @Value("${timeOut:1000}")
+    @Value("${timeOut}")
     private long timeOutMilliSecond;
 
     @Autowired

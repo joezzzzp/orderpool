@@ -6,3 +6,6 @@ spring:
   redis:
     host: localhost
     port: 6371
+
+simpleOrderPoolSize: 1000
+timeOut: 5000

@@ -22,10 +22,10 @@ public class SimpleOrderService implements OrderService, InitializingBean {
 
     private BlockingQueue<Order> orderPool;
 
-    @Value("${simpleOrderPoolSize:1000}")
+    @Value("${simpleOrderPoolSize}")
     private int poolSize;
 
-    @Value("${timeOut:5000}")
+    @Value("${timeOut}")
     private long timeOutMilliSecond;
 
     private OrderNoGenerator orderNoGenerator;

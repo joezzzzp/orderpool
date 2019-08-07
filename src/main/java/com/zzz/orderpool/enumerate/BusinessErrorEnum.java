@@ -6,17 +6,17 @@ package com.zzz.orderpool.enumerate;
  **/
 
 public enum BusinessErrorEnum {
-    //默认异常
+    //Default error
     NONE(-1, "Unknown error"),
-    //超时异常
+    //Time out
     TIME_OUT(-2, "Time out"),
-    //订单池无订单
+    //Empty order pool
     NO_ORDER(-3, "Order pool is empty"),
-    //订单池已满
+    //Full order pool
     FULL_ORDER_POOL(-4, "Order pool is full"),
-    //无此订单
+    //Have no such order
     NO_SUCH_ORDER(-5, "Have no such order in order pool"),
-    //生成订单号失败
+    //Can't generate order no
     GENERATE_ORDER_NO_FAILED(-6, "Generate order no error");
 
     private int errorCode;
