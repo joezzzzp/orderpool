@@ -10,12 +10,12 @@ import org.springframework.util.StringUtils;
 public class Order {
 
     /**
-     * 订单编号
+     * order number
      */
     private String orderNo;
 
     /**
-     * 订单内容
+     * order content
      */
     private String content;
 

@@ -11,20 +11,20 @@ public class Response<T> {
 
     private static final int SUCCESS_CODE = 200;
 
-    private static final String SUCCESS_MESSAGE = "请求成功";
+    private static final String SUCCESS_MESSAGE = "Success";
 
     /**
-     * 返回码
+     * code
      */
     private int code;
 
     /**
-     * 返回信息
+     * message
      */
     private String message;
 
     /**
-     * 返回数据
+     * return data
      */
     private T data;
 

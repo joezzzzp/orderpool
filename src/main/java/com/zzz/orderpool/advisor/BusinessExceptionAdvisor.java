@@ -19,7 +19,7 @@ public class BusinessExceptionAdvisor {
 
     @ExceptionHandler(BusinessException.class)
     Response handleBusinessException(BusinessException businessException) {
-        logger.error("业务异常", businessException);
+        logger.error("Business error", businessException);
         return Response.failed(businessException.getErrorCode(), businessException.getMessage(), null);
     }
 }

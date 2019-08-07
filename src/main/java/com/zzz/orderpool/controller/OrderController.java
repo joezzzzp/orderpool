@@ -51,7 +51,7 @@ public class OrderController {
         try {
             latestOrder = orderService.takeOne();
         } catch (InterruptedException e) {
-            logger.error("获取订单时意外中断", e);
+            logger.error("interrupted", e);
             throw e;
         }
         if (latestOrder == null) {

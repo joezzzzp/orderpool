@@ -3,7 +3,6 @@ package com.zzz.orderpool.component;
 import com.zzz.orderpool.enumerate.BusinessErrorEnum;
 import com.zzz.orderpool.exception.BusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 

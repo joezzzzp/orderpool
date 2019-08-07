@@ -63,7 +63,7 @@ public class MultiOrderService implements OrderService {
             redisTemplate.opsForList().leftPush(QUEUE_KEY, nextOrderNo);
             redisTemplate.opsForValue().set(CONTENT_KEY_PREFIX + nextOrderNo, objectMapper.writeValueAsString(newOrder));
         } catch (JsonProcessingException e) {
-            logger.error("sql转换失败", e);
+            logger.error("convert object to json failed", e);
             return null;
         }
         return newOrder;
@@ -90,7 +90,7 @@ public class MultiOrderService implements OrderService {
             try {
                 return objectMapper.readValue(jsonString, Order.class);
             } catch (IOException e) {
-                logger.error("sql转换失败", e);
+                logger.error("convert json to object failed", e);
                 return null;
             }
         }

@@ -1,4 +1,5 @@
 orderPool:
+  # single(default), multi
   mode: multi
 
 spring:

@@ -11,22 +11,22 @@ import org.springframework.stereotype.Service;
 public interface OrderService {
 
     /**
-     * 新增订单
-     * @param newOrder 新订单实体
-     * @return 新增的订单实体
+     * add new order
+     * @param newOrder new order entity
+     * @return order entity with order no
      */
     Order add(Order newOrder);
 
     /**
-     * 移除订单
-     * @param orderNo 订单编号
-     * @return 移除的订单实体
+     * remove order
+     * @param orderNo order no
+     * @return removing result
      */
     boolean remove(String orderNo);
 
     /**
-     * 获取最新订单
-     * @return 获取的订单实体
+     * get first order in queue
+     * @return the order entity
      */
     Order takeOne() throws InterruptedException;
 }
