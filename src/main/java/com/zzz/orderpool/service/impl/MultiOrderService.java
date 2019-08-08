@@ -84,6 +84,7 @@ public class MultiOrderService implements OrderService {
             return null;
         }
         String jsonString = redisTemplate.opsForValue().get(CONTENT_KEY_PREFIX + orderNo);
+        redisTemplate.delete(CONTENT_KEY_PREFIX + orderNo);
         if (!StringUtils.isEmpty(jsonString)) {
             try {
                 return objectMapper.readValue(jsonString, Order.class);
